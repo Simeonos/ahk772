@@ -1,3 +1,23 @@
+FindAttackBox() {
+  Global BattleSchermX1
+	Global BattleSchermY1
+	Global BattleSchermX2
+	Global BattleSchermY2
+	ZoekInTibia(FoundX,FoundY,0,0,0,0,"assets/is-attacking.png")
+
+	if (FoundX > 0) {
+    Return True
+  }
+
+  ZoekInTibia(FoundX,FoundY,0,0,0,0,"assets/is-attacking-hover.png")
+
+	if (FoundX > 0) {
+    Return True
+  }
+
+	Return False
+}
+
 FindBattleScreen() {
   Global BattleSchermX1
   Global BattleSchermY1

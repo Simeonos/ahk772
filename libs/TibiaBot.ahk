@@ -29,7 +29,7 @@ Think() {
 
   if (MonstersPresent()) {
     if (IsAttacking()) {
-      DebugAppend("Should be waiting ..")
+      
     } else {
       AttackFirstMonster()
     }
@@ -48,14 +48,13 @@ AttackFirstMonster() {
 }
 
 IsAttacking() {
-
+  return FindAttackBox()
 }
 
 MonstersPresent() {
   Global Monsters
 
-  if (Monsters.Length() > 0)
-  {
+  if (Monsters.Length() > 0) {
       return true
   }
 
