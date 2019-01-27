@@ -1,4 +1,4 @@
-Click(X, Y, Button) { ; De Button moet tussen aanhalingstekens, bijv. "Right"
+Click(X, Y, Button) {
   Global ClientPID
   KlikX := % "x" . X
   KlikY := % "y" . Y

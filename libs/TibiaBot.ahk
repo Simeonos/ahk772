@@ -43,13 +43,29 @@ AttackFirstMonster() {
   Global BattleSchermY1
   Sleep, 10
   FindBattleScreen()
-  DebugAppend("Trying to click first monster .." . BattleSchermX1)
   Click(BattleSchermX1 +5, BattleSchermY1+5,"Left")
 }
 
 FindNewMonsters() {
+  Global CoordX
+  Global CoordY
   Global CurrentNodeIndex
   Global Waypoints
+
+  DiffX := Waypoints[CurrentNodeIndex]["x"] - CoordX
+  DiffY := Waypoints[CurrentNodeIndex]["y"] - CoordY
+
+  if (DiffX < 3 && DiffX > -3 && DiffY < 3 DiffY > -3) {
+    DebugAppend("Walking to a new waypoint")
+    CurrentNodeIndex := CurrentNodeIndex + 1
+
+    if (CurrentNodeIndex > Waypoints.Length()) {
+      CurrentNodeIndex := 1
+    }
+
+    FindNewMonsters()
+  }
+
   ClickCoordinateOnMap(Waypoints[CurrentNodeIndex]["x"], Waypoints[CurrentNodeIndex]["y"])
 }
 
