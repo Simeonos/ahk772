@@ -1,6 +1,7 @@
 ﻿ClientPath := "C:\Program Files (x86)\Tibia\Tibia.exe"
 ProcessName := "Tibia"
 Global CharacterName := "Sasaki"
+Global CurrentNodeIndex := 1
 
 Global MapLinksbovenX
 Global MapLinksbovenY

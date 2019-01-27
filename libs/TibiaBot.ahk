@@ -29,12 +29,12 @@ Think() {
 
   if (MonstersPresent()) {
     if (IsAttacking()) {
-      
+
     } else {
       AttackFirstMonster()
     }
   } else {
-    DebugAppend("We should be walking ..")
+    FindNewMonsters()
   }
 }
 
@@ -45,6 +45,12 @@ AttackFirstMonster() {
   FindBattleScreen()
   DebugAppend("Trying to click first monster .." . BattleSchermX1)
   Click(BattleSchermX1 +5, BattleSchermY1+5,"Left")
+}
+
+FindNewMonsters() {
+  Global CurrentNodeIndex
+  Global Waypoints
+  ClickCoordinateOnMap(Waypoints[CurrentNodeIndex]["x"], Waypoints[CurrentNodeIndex]["y"])
 }
 
 IsAttacking() {

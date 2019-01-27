@@ -1,3 +1,30 @@
+{
+  ZoekInTibiaRechtsNaarLinks(FoundX1, FoundY1, 0,0,0,0, "assets/health-icon.png") 	; Referentiepunt zoeken
+    Global HealthXLinks := FoundX1+15
+    Global HealthXRechts := HealthXLinks+85
+    Global HealthY := FoundY1 - 3
+    Global ManaXLinks := HealthXLinks
+    Global ManaXRechts := HealthXRechts
+    Global ManaY := HealthY + 13
+
+    ; Canvas regio:
+    Global CanvasY1 := 30
+    Global CanvasY2 := 922
+    Global CanvasX1 := 263
+    Global CanvasX2 := 1480
+    Global CharX := 0.5*(CanvasX1+CanvasX2)
+    Global CharY := 0.5*(CanvasY1+CanvasY2)
+    DebugAppend("Canvas: " . CharX . CharY)
+
+    Global Square := (CanvasY2 - CanvasY1) / 11
+
+    ; Mapregio
+    Global MapLinksbovenX := HealthXLinks - 20
+    Global MapLinksbovenY := HealthY - 122
+    Global MapRechtsonderX := MapLinksbovenX + 107
+    Global MapRechtsonderY := MapLinksbovenY + 107
+}
+
 FindAttackBox() {
   Global BattleSchermX1
 	Global BattleSchermY1
