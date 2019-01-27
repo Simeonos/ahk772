@@ -1,3 +1,16 @@
+FindBattleScreen() {
+  Global BattleSchermX1
+  Global BattleSchermY1
+  Global BattleSchermX2
+  Global BattleSchermY2
+  ZoekInTibiaRechtsNaarLinks(FoundX,FoundY,0,0,0,0,"assets/battlelist-begin.png")
+  BattleSchermX1 := FoundX +4
+  BattleSchermY1 := FoundY + 15
+  ZoekInTibia(FoundX,FoundY,BattleSchermX1,BattleSchermY1,0,0,"assets/battlelist-end.png")
+  BattleSchermX2 := FoundX ; +14 ; evt. +14 weglaten
+  BattleSchermY2 := FoundY ; +14
+}
+
 getHwndForPid(pid) {
     pidStr := "ahk_pid " . pid
     WinGet, hWnd, ID, %pidStr%
@@ -40,7 +53,7 @@ ZoekBitmapSimRechtsNaarLinks(ByRef pid1, ByRef FoundX1="",ByRef FoundY1="",LiBov
 }
 
   
-  ZoekInTibia(ByRef FoundX1, ByRef FoundY1, X1, Y1, X2, Y2, filename) {
+ZoekInTibia(ByRef FoundX1, ByRef FoundY1, X1, Y1, X2, Y2, filename) {
   Global ClientPID
   ZoekBitmapSim(ClientPID,FoundX1,FoundY1,X1,Y1,X2,Y2,filename)
 }

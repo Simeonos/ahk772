@@ -27,13 +27,39 @@ Think() {
   UpdateLocation()
   UpdateBattlelist()
 
-  DebugClear()
-
-  Global Monsters
-  for index, element in Monsters
-  {
-      DebugAppend("Found: " . element["name"] . " (" . element["health"] . ")")
+  if (MonstersPresent()) {
+    if (IsAttacking()) {
+      DebugAppend("Should be waiting ..")
+    } else {
+      AttackFirstMonster()
+    }
+  } else {
+    DebugAppend("We should be walking ..")
   }
+}
+
+AttackFirstMonster() {
+  Global BattleSchermX1
+  Global BattleSchermY1
+  Sleep, 10
+  FindBattleScreen()
+  DebugAppend("Trying to click first monster .." . BattleSchermX1)
+  Click(BattleSchermX1 +5, BattleSchermY1+5,"Left")
+}
+
+IsAttacking() {
+
+}
+
+MonstersPresent() {
+  Global Monsters
+
+  if (Monsters.Length() > 0)
+  {
+      return true
+  }
+
+  return false
 }
 
 ^r:: ; WERKT Sneltoets voor herladen van script
