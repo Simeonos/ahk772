@@ -23,7 +23,7 @@ Main() {
 Think() {
   ManageHealth()
   ManageMana()
-  DebugAppend("Thinking .. " . Waypoints.Count())
+  DebugAppend("Thinking .. ")
   UpdateLocation()
   UpdateBattlelist()
 

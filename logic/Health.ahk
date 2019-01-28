@@ -1,7 +1,6 @@
 ManageHealth() {
   Health := GetHealthPercentage()
-    if Health < 0.9
-    {
+    if (Health < 0.9 && GetCurrentMana() >= 25) {
       DebugAppend("Health from manage: " . Health)
       Toets("F1")
     }

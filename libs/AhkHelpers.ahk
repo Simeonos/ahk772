@@ -7,7 +7,6 @@ Click(X, Y, Button) {
 }
 
 ClickCoordinateOnMap(ByRef X, ByRef Y) {
-  DebugAppend(X . " - " . Y)
   Global MapLinksBovenX
   Global MapLinksBovenY
 
@@ -19,8 +18,6 @@ ClickCoordinateOnMap(ByRef X, ByRef Y) {
 
   TargetX := MapLinksBovenX + 54 - DiffX
   TargetY := MapLinksBovenY + 54 - DiffY
-
-  DebugAppend(TargetX . " - " . TargetY)
 
   Click(TargetX, TargetY, "Left")
 }
