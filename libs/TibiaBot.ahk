@@ -11,6 +11,7 @@
 #include libs/AhkHelpers.ahk
 
 #include logic/Health.ahk
+#include logic/Looting.ahk
 #include logic/Mana.ahk
 
 Main() {
@@ -23,7 +24,6 @@ Main() {
 Think() {
   ManageHealth()
   ManageMana()
-  DebugAppend("Thinking .. ")
   UpdateLocation()
   UpdateBattlelist()
 
@@ -39,6 +39,7 @@ Think() {
 }
 
 AttackFirstMonster() {
+  Global WasAttacking := True
   Global BattleSchermX1
   Global BattleSchermY1
   Sleep, 10
@@ -50,7 +51,14 @@ FindNewMonsters() {
   Global CoordX
   Global CoordY
   Global CurrentNodeIndex
+  Global WasAttacking
   Global Waypoints
+
+  if (WasAttacking = True) {
+    DebugAppend("Will try to loot ..")
+    Loot()
+    WasAttacking := False
+  }
 
   DiffX := Waypoints[CurrentNodeIndex]["x"] - CoordX
   DiffY := Waypoints[CurrentNodeIndex]["y"] - CoordY
