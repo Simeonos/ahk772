@@ -39,6 +39,8 @@ Think() {
 }
 
 AttackFirstMonster() {
+  Global WasAttacking
+
   Global WasAttacking := True
   Global BattleSchermX1
   Global BattleSchermY1
@@ -63,7 +65,7 @@ FindNewMonsters() {
   DiffX := Waypoints[CurrentNodeIndex]["x"] - CoordX
   DiffY := Waypoints[CurrentNodeIndex]["y"] - CoordY
 
-  if (DiffX < 3 && DiffX > -3 && DiffY < 3 DiffY > -3) {
+  if (DiffX < 3 && DiffX > -3 && DiffY < 3 && DiffY > -3) {
     DebugAppend("Walking to a new waypoint")
     CurrentNodeIndex := CurrentNodeIndex + 1
 
@@ -74,7 +76,9 @@ FindNewMonsters() {
     FindNewMonsters()
   }
 
-  ClickCoordinateOnMap(Waypoints[CurrentNodeIndex]["x"], Waypoints[CurrentNodeIndex]["y"])
+  if (GetCurrentMana() >= 200) {
+    ClickCoordinateOnMap(Waypoints[CurrentNodeIndex]["x"], Waypoints[CurrentNodeIndex]["y"])
+  }
 }
 
 IsAttacking() {
@@ -90,6 +94,13 @@ MonstersPresent() {
 
   return false
 }
+
+^h::
+  UpdateLocation()
+  Global CoordX
+  Global CoordY
+  MsgBox % CoordX . ", " . CoordY
+Return
 
 ^r:: ; WERKT Sneltoets voor herladen van script
   Run *RunAs %A_ScriptFullPath% %1%
