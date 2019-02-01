@@ -3,7 +3,7 @@ Gui, Show, w420 h320, Debug Window
 
 DebugAppend(Data) {
 	GuiControlGet, Debug
-	GuiControl,, Debug, %Debug%%Data%`r`n
+	GuiControl,, Debug, %Data%`r`n%Debug%
 }
 
 DebugClear() {
