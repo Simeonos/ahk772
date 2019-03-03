@@ -26,12 +26,14 @@ ManageHealth() {
 }
 
 AugmentHealthManagementOfBlackd() {
+  
   Global LowerLimitOfHealth  
   Global KeyWhenHealthBelowLowerLimit
   Health := GetCurrentHealth()
-  if Health < LogOutWhenHealthBelow
+  DebugAppend("AugmentHealthManagementOfblackd, health = " . Health . "Lower Limit = " . LowerLimitOfHealth)
+  if Health < LowerLimitOfHealth
   {
-    Toets(%KeyWhenHealthBelowLowerLimit%)
+    Toets(KeyWhenHealthBelowLowerLimit)
     Sleep 1000
     CloseTibia()
   }
