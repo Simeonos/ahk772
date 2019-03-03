@@ -13,4 +13,9 @@ ManageHealth() {
       ;   Toets("E")
   	  ; Send e
   	}
+    
+  Global LogOutWhenHealthBelow  
+  Health := GetCurrentHealth()
+  if Health < LogOutWhenHealthBelow
+  CloseTibia()
 }
