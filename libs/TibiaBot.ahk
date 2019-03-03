@@ -111,4 +111,12 @@ Return
   Main()
 Return
 
+^1::
+loop,
+  {
+    ManageHealth()
+    Sleep, 1000
+  }
+Return
+
 DebugAppend("Welcome to Tibia.")
