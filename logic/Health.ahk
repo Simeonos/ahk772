@@ -14,8 +14,13 @@ ManageHealth() {
   	  ; Send e
   	}
     
-  Global LogOutWhenHealthBelow  
+  Global LowerLimitOfHealth  
+  Global KeyWhenHealthBelowLowerLimit
   Health := GetCurrentHealth()
   if Health < LogOutWhenHealthBelow
-  CloseTibia()
+  {
+    Toets(%KeyWhenHealthBelowLowerLimit%)
+    Sleep 1000
+    CloseTibia()
+  }
 }
