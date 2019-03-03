@@ -114,7 +114,7 @@ Return
 ^1::
 loop,
   {
-    ManageHealth()
+    AugmentHealthManagementOfBlackd()
     Sleep, 1000
   }
 Return
