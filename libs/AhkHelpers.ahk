@@ -41,7 +41,8 @@ Toets(InTeDrukkenToets) {
 	  SplashTextOff
 	  ControlSend,,{%InTeDrukkenToets%}, ahk_pid %ClientPID%
 	}
-  
+}
+
 CloseTibia() {
 Global ClientPID
 WinKill, ahk_pid %ClientPID%
