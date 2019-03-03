@@ -1,7 +1,8 @@
 ﻿ClientPath := "C:\Program Files (x86)\Tibia\Tibia.exe"
 ProcessName := "Tibia"
 Global CharacterName := "Czarek"
-Global LogOutWhenHealthBelow := 400
+Global LowerLimitOfHealth := 400
+Global KeyWhenHealthBelowLowerLimit := "Down"
 Global CurrentNodeIndex := 1
 
 Global MapLinksbovenX
