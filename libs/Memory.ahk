@@ -1,6 +1,7 @@
-﻿ReadMemory(MADDRESS,PROGRAM) {
-  ClientPath := "C:\Program Files (x86)\Tibia\Tibia.exe"
-  WinGet, pid, PID, ahk_exe %ClientPath%
+﻿ReadMemory(MADDRESS, pid := -1) {
+  global ClientPID
+  if pid = -1
+    pid := ClientPID
 
   VarSetCapacity(MVALUE,4,0)
   ProcessHandle := DllCall("OpenProcess", "Int", 24, "Char", 0, "UInt", pid, "UInt")
@@ -10,9 +11,10 @@
   return, float
 }
 
-ReadMemory2byte(MADDRESS,PROGRAM) {
-  ClientPath := "C:\Program Files (x86)\Tibia\Tibia.exe"
-  WinGet, pid, PID, ahk_exe %ClientPath%
+ReadMemory2byte(MADDRESS, pid := -1) {
+  global ClientPID
+  if pid = -1
+    pid := ClientPID
 
   VarSetCapacity(MVALUE,4,0)
   ProcessHandle := DllCall("OpenProcess", "Int", 24, "Char", 0, "UInt", pid, "UInt")
@@ -25,9 +27,10 @@ ReadMemory2byte(MADDRESS,PROGRAM) {
 }
 
 
-ReadMemory4byte(MADDRESS,PROGRAM) {
-  ClientPath := "C:\Program Files (x86)\Tibia\Tibia.exe"
-  WinGet, pid, PID, ahk_exe %ClientPath%
+ReadMemory4byte(MADDRESS, pid := -1) {
+  global ClientPID
+  if pid = -1
+    pid := ClientPID
 
   VarSetCapacity(MVALUE,4,0)
   ProcessHandle := DllCall("OpenProcess", "Int", 24, "Char", 0, "UInt", pid, "UInt")
@@ -40,9 +43,10 @@ ReadMemory4byte(MADDRESS,PROGRAM) {
 }
 
 
-ReadMemory8byte(MADDRESS,PROGRAM) {
-  ClientPath := "C:\Program Files (x86)\Tibia\Tibia.exe"
-  WinGet, pid, PID, ahk_exe %ClientPath%
+ReadMemory8byte(MADDRESS, pid := -1) {
+  global ClientPID
+  if pid = -1
+    pid := ClientPID
 
   VarSetCapacity(MVALUE,4,0)
   ProcessHandle := DllCall("OpenProcess", "Int", 24, "Char", 0, "UInt", pid, "UInt")
@@ -55,9 +59,10 @@ ReadMemory8byte(MADDRESS,PROGRAM) {
 }
 
 
-ReadMemoryString(MADDRESS,PROGRAM) {
-  ClientPath := "C:\Program Files (x86)\Tibia\Tibia.exe"
-  WinGet, pid, PID, ahk_exe %ClientPath%
+ReadMemoryString(MADDRESS, pid := -1) {
+  global ClientPID
+  if pid = -1
+    pid := ClientPID
 
   ProcessHandle := DllCall("OpenProcess", "Int", 24, "Char", 0, "UInt", pid, "Uint")
   teststr =
