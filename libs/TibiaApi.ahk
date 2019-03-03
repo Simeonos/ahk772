@@ -3,26 +3,26 @@
 ; Public methods
 
 GetCoordX() {
-	coordX := ReadMemory4byte(0x005776e8, "Tibia")
+	coordX := ReadMemory4byte(0x005776e8)
 	return coordX
 }
 
 GetCoordY() {
-	coordY := ReadMemory4byte(0x005776e4, "Tibia")
+	coordY := ReadMemory4byte(0x005776e4)
 	return coordY
 }
 
 GetCoordZ() {
-	return ReadMemory4byte(0x005776e0, "Tibia")
+	return ReadMemory4byte(0x005776e0)
 }
 
 GetCurrentHealth() {
-	currentHealth := ReadMemory4byte(0x0056c848, "Tibia")
+	currentHealth := ReadMemory4byte(0x0056c848)
 	return currentHealth
 }
 
 GetCurrentMana() {
-  currentMana := ReadMemory4byte(0x0056c82c, "Tibia")
+  currentMana := ReadMemory4byte(0x0056c82c)
   return currentMana
 }
 
@@ -39,12 +39,12 @@ GetManaPercentage() {
 }
 
 GetMaxHealth() {
-	maxHealth := ReadMemory4byte(0x0056c844, "Tibia")
+	maxHealth := ReadMemory4byte(0x0056c844)
 	return maxHealth
 }
 
 GetMaxMana() {
-  maxMana := ReadMemory4byte(0x0056c828, "Tibia")
+  maxMana := ReadMemory4byte(0x0056c828)
   return maxMana
 }
 
@@ -54,13 +54,13 @@ UpdateBattlelist() {
 
   while count < 50
   {
-    name := ReadMemoryString(0x0056c8b0 + 4 + (156 * count), "Tibia")
+    name := ReadMemoryString(0x0056c8b0 + 4 + (156 * count))
     ; x = 36
     ; y = 40
     ; z = 42
-    level := ReadMemory2byte(0x0056c8b0 + 44 + (156 * count), "Tibia")
-    health := ReadMemory4byte(0x0056c8b0 + 132 + (156 * count), "Tibia")
-    status := ReadMemory2byte(0x0056c8b0 + 140 + (156 * count), "Tibia")
+    level := ReadMemory2byte(0x0056c8b0 + 44 + (156 * count))
+    health := ReadMemory4byte(0x0056c8b0 + 132 + (156 * count))
+    status := ReadMemory2byte(0x0056c8b0 + 140 + (156 * count))
     if (level = CoordZ && status = 1 && CharacterName <> name)
     {
       Monsters.Push({name: name, health: health})
