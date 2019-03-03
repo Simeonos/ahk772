@@ -24,3 +24,15 @@ ManageHealth() {
     CloseTibia()
   }
 }
+
+AugmentHealthManagementOfBlackd() {
+  Global LowerLimitOfHealth  
+  Global KeyWhenHealthBelowLowerLimit
+  Health := GetCurrentHealth()
+  if Health < LogOutWhenHealthBelow
+  {
+    Toets(%KeyWhenHealthBelowLowerLimit%)
+    Sleep 1000
+    CloseTibia()
+  }
+}
