@@ -8,15 +8,19 @@
     Global ManaY := HealthY + 13
 
     ; Canvas regio:
-    Global CanvasY1 := 30
-    Global CanvasY2 := 922
-    Global CanvasX1 := 263
-    Global CanvasX2 := 1480
-    Global CharX := 0.5*(CanvasX1+CanvasX2)
-    Global CharY := 0.5*(CanvasY1+CanvasY2)
-    DebugAppend("Canvas: " . CharX . CharY)
-
-    Global Square := (CanvasY2 - CanvasY1) / 11
+  ZoekInTibia(FoundX2, FoundY2, 0,0,0,0, "assets/GrijzeVlakLinksBoven.png")	; Referentiepunt GrijzeVlakX1 en GrijzeVlakY1
+  ZoekInTibia(FoundX3, FoundY3, 0,0,0,0, "assets/GrensCanvasTabbladenLinkerDeel.png")
+  GrijzeVlakX1 := FoundX2 + 7 		; Linkerrand van het grijze vlak waarin de canvas wordt getekend plus minimale rand van 7 pixels.
+  GrijzeVlakY1 := FoundY2 + 7 		; Bovenrand van het grijze vlak waarin de canvas wordt getekend plus de constante rand van 7 pixels.
+  GrijzeVlakX2 := FoundX1 - 21 		; Rechterrand grijze vlak waarin de canvas wordt getekend minus minimale rand van 6 pixels
+  GrijzeVlakY2 := FoundY3 - 6  		; Onderrand van het grijze vlak waarin de canvas wordt getekend minus constante rand van 6 pixels.
+  Global CharX := 0.5*(GrijzeVlakX1+GrijzeVlakX2)
+  Global CharY := 0.5*(GrijzeVlakY1+GrijzeVlakY2)
+  Global Square := (GrijzeVlakY2 - GrijzeVlakY1) / 11
+  Global CanvasY1 := GrijzeVlakY1 	; De bovenrand van het scherm waarin de speelvakjes getekend worden (de canvas)
+  Global CanvasY2 := GrijzeVlakY2 	; De onderrand van het scherm waarin de speelvakjes getekend worden (de canvas)
+  Global CanvasX1 := Round(CharX - 7.5*Square - 1)
+  Global CanvasX2 := Round(CharX + 7.5*Square)
 
     ; Mapregio
     Global MapLinksbovenX := HealthXLinks - 20
